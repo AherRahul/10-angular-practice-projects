@@ -1,0 +1,18 @@
+<div class="app p-4 container-fluid">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="text-center">
+                <div *ngIf="!loader">
+                    <app-card [user]="user"></app-card>
+                    <button type="button" class="btn btn-success mt-5" (click)="reloadUser()">New User</button>
+                </div>
+                <div class="mt-5" *ngIf="loader">
+                    <div class="p-3 mt-5">
+                        <div class="spinner-border text-warning" role="status">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<ng-container *ngIf="todos.length">
+    <ul class="list-group w-100" *ngFor="let todo of todos">
+        <li class="list-group-item d-flex justify-content-between w-100">
+            <span class="pt-2">
+                <input (change)="changeTodoStatus(todo)" type="checkbox" [checked]="todo.isCompleted">
+            </span>
+            <ng-container *ngIf="todo.isCompleted">
+                <span class="completedTodo pt-2">
+                    {{todo.title | uppercase}}
+                </span>
+                <span class="completedTodo pt-2">
+                    {{ todo.date | date }}
+                </span>
+            </ng-container>
+            <ng-container *ngIf="!todo.isCompleted">
+                <span class="pt-2">
+                    {{todo.title | uppercase}}
+                </span>
+                <span class="pt-2">
+                    {{ todo.date | date }}
+                </span>
+            </ng-container>
+            
+            <span>
+                <button class="btn btn-danger" [disabled]="!todo.isCompleted" (click)="deleteTodo(todo)">Delete <fa-icon [icon]="faTrashAlt"></fa-icon></button>
+            </span>
+        </li>
+    </ul>
+</ng-container>
+<ng-container *ngIf="!todos.length">
+    <div class="w-100" style="background-color: rgba(255, 253, 253, 0.932); padding: 50px; text-align: center;">
+        <h4>
+            Add Todo
+        </h4>
+    </div>
+</ng-container>

@@ -1,0 +1,16 @@
+<div class="container">
+  <header>
+    <h1>Counter</h1>
+  </header>
+
+  <main>
+    <h2>Current count is : {{count}}</h2>
+    <p>(Count range in between 0 to 100.)</p>
+  </main>
+
+  <div class="buttons-container">
+    <button (click) = "handleReset()">Reset Count</button>
+    <button (click) = "handleIncrement()">Increase Count</button>
+    <button (click) = "handleDecrement()">Decrease Count</button>
+  </div>
+</div>

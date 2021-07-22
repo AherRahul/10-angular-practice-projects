@@ -1,0 +1,32 @@
+<div class="card border-warning">
+    <div class="card-body text-center">
+        <img width="150" height="150" class="rounded-circle img-thumbnail border-danger" *ngIf="user" [src]="user?.picture?.large ? user.picture.large : 'https://via.placeholder.com/150'" [alt]="user?.name" />
+
+        <div class="mb-5" *ngIf="user && loadData">
+
+            <h4 class="pt-3 text-muted">
+                My name is
+            </h4>
+
+            <div class="card-title mb-5">
+                <h1>
+                    <span class="px-1">{{user?.name?.title}}.</span>
+                    <span class="px-1">{{user.name?.first}}</span>
+                    <span class="px-1">{{user.name?.last}}</span>
+                </h1>
+            </div>
+
+            <div class="col-md-8 offset-md-2">
+                <p><fa-icon [icon]="faEnvelope"></fa-icon>{{user?.email}}</p>
+                <p><fa-icon [icon]="faMapMarkedAlt"></fa-icon>{{user?.location?.city}}, {{user?.location?.state}}, {{user?.location?.country}}</p>
+                <p><fa-icon [icon]="faDatabase"></fa-icon><span>{{user?.registered?.date | date}}</span></p>
+                <p><fa-icon [icon]="faPhone"></fa-icon>{{user?.phone}}</p>
+                <p><fa-icon [icon]="faUnlock"></fa-icon>{{user?.login?.password}}</p>
+            </div>
+        </div>
+        <div class="p-3" *ngIf="!loadData">
+            <div class="spinner-border text-warning" role="status">
+            </div>
+        </div>
+    </div>
+</div>

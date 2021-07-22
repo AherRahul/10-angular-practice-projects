@@ -1,0 +1,44 @@
+.container,
+.row {
+  height: 100vh;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 15px;
+}
+
+.box {
+  width: auto;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h3 {
+  color: rgb(44, 43, 43);
+  background-color: rgba(240, 248, 255, 0.721);
+  margin: 30px;
+  padding: 20px;
+}
+
+.head-text {
+  background-color: rgba(240, 248, 255, 0.721);
+  margin: 20px 70px;
+  padding: 10px;
+}
+
+.card-box {
+  cursor: pointer;
+}
+
+.win-box {
+  pointer-events: none;
+}
+
+.disabled-box {
+  pointer-events: none;
+  background-color: rgb(172, 171, 171);
+}

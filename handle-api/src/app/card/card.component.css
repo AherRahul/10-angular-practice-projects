@@ -1,0 +1,35 @@
+.card {
+  margin-top: 125px;
+}
+img {
+  margin-top: -80px;
+}
+
+.card-title {
+  color: #007934;
+}
+
+fa-icon {
+  color: white;
+  font-size: 1.15rem;
+  line-height: 2rem;
+}
+
+p {
+  background-color: #eee;
+  line-height: 2rem;
+  margin: 0 0 0.5rem;
+  padding-left: 3rem;
+  position: relative;
+}
+
+fa-icon {
+  background-color: #007934;
+  -webkit-clip-path: polygon(0 0, 100% 0%, 85% 100%, 0% 100%);
+          clip-path: polygon(0 0, 100% 0%, 85% 100%, 0% 100%);
+  left: 0;
+  padding-right: 0.25rem;
+  position: absolute;
+  top: 0;
+  width: 2.25rem;
+}
