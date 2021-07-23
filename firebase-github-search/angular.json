@@ -113,8 +113,13 @@
               "devServerTarget": "firebase-github-search:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "firebase-github-search"
 }

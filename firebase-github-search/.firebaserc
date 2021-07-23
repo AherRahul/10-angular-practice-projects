@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "fir-angular-github": {
+      "hosting": {
+        "firebase-github-search": [
+          "fir-angular-github"
+        ]
+      }
+    }
+  }
+}
