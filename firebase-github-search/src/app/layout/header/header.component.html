@@ -1,18 +1,31 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" [routerLink]=" ['/home'] "></a>
-    <img src="../../../assets/img.png" height="30" width="30" alt="LCO github finder app" />
-    LCO github finder app
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
+  <a class="navbar-brand mx-3" [routerLink]="['/']">
+    <img src="../../../assets/img.png"  width="30" height="30" alt="" />
+  </a>
 
-    <div class="navbar-collapse">
-        <div class="navbar-nav ml-auto">
-            <div *ngIf="email" class="navbar-text float-left">
-                {{email}}
-            </div>
-
-            <a [routerLink]=" ['/'] " routerLinkActive="active" class="nav-item nav-link">Home</a>
-            <a [routerLink]=" ['/signin'] " routerLinkActive="active" *ngIf="!email" class="nav-item nav-link">Sigin In</a>
-            <a [routerLink]=" ['/signup'] " routerLinkActive="active" *ngIf="!email" class="nav-item nav-link">Sign Up</a>
-            <a *ngIf="email" class="nav-item nav-link" (click)="handleSignOut()">Logout</a>
-        </div>
+  <div class="navbar-collapse d-flex justify-content-end mx-3">
+    <div class="navbar-nav ml-auto" >
+      <div *ngIf="email" class="navbar-text">
+        {{ email }}
+      </div>
+      <a class="nav-item nav-link" [routerLink]="['/']">Home</a>
+      <a
+        *ngIf="!email"
+        class="nav-item nav-link"
+        routerLinkActive="active"
+        [routerLink]="['/signin']"
+        >Signin</a
+      >
+      <a
+        *ngIf="!email"
+        class="nav-item nav-link"
+        routerLinkActive="active"
+        [routerLink]="['/signup']"
+        >Signup</a
+      >
+      <a *ngIf="email" class="nav-item nav-link" (click)="handleSignOut()"
+        >Logout</a
+      >
     </div>
+  </div>
 </nav>

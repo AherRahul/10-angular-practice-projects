@@ -1,12 +1,46 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Routes, RouterModule } from '@angular/router';
 
+import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.component';
+import { HomeComponent } from './pages/home/home.component';
+import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
+//guarding
+import {
+  AngularFireAuthGuard,
+  redirectUnauthorizedTo,
+  redirectLoggedInTo,
+} from '@angular/fire/auth-guard';
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['signin']);
+const redirectLoggedInToHome = () => redirectLoggedInTo(['']);
+
+const routes: Routes = [
+  {
+    path: 'signin',
+    component: SignInComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectLoggedInToHome },
+  },
+  {
+    path: 'signup',
+    component: SignupComponent,
+  },
+  {
+    path: '',
+    component: HomeComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
+  },
+  {
+    path: '**',
+    component: PagenotfoundComponent,
+  },
+];
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

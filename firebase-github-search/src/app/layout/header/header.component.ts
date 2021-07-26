@@ -1,37 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { AuthService } from './../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
   email = null;
 
   constructor(
-    private authService: AuthService,
-    private toastrService: ToastrService,
-    private router: Router
+    private auth: AuthService,
+    private router: Router,
+    private toastr: ToastrService,
+    private ref: ChangeDetectorRef,
+
   ) {
-    authService.getUser().subscribe((user: any) => {
+    auth.getUser().subscribe((user) => {
       this.email = user.email;
-    })
+    });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit(): void {}
 
   async handleSignOut() {
     try {
-      const res = await this.authService.signOut();
+      const res = await this.auth.signOut();
       this.router.navigateByUrl('/signin');
-      this.toastrService.info("Login again to continue..!!");
+      this.toastr.info('Login Again to continue');
+      this.email = null;
     } catch (error) {
-      this.toastrService.error("Something is wrong..!!");
+      this.toastr.error('Somthing is wrong');
     }
   }
-
 }

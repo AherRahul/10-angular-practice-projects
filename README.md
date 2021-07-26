@@ -33,4 +33,10 @@
 ##### Purpose: Learn and understand handling API, services, RXJS, observable, subscriber, ng-content, httpclientmodule, etc.
 ##### Demo: https://handle-api.netlify.app/
 
-#### Loading...3 more coming...
+
+#### 8. Github search and firebase authentication (using open source git API)
+##### Purpose: Learn and understand authentication, routing, routing protection, handling API, services, RXJS, observable, subscriber, ng-content, httpclientmodule, etc.
+##### Demo: https://github-searcher-app.netlify.app/
+
+#### Loading.. 2 more coming...
+

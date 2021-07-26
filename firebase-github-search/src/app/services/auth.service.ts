@@ -2,27 +2,24 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  constructor(
-    private angularFireAuth: AngularFireAuth
-  ) { }
+  constructor(private authFireAuth: AngularFireAuth) {}
 
   signUp(email: string, password: string) {
-    return this.angularFireAuth.auth.createUserWithEmailAndPassword(email, password);
+    return this.authFireAuth.auth.createUserWithEmailAndPassword(email, password);
   }
 
   signIn(email: string, password: string) {
-    return this.angularFireAuth.auth.signInWithEmailAndPassword(email, password);
+    return this.authFireAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
-  getUser(): any {
-    return this.angularFireAuth.authState;
+  getUser() {
+    return this.authFireAuth.authState;
   }
 
   signOut() {
-    return this.angularFireAuth.auth.signOut();
+    return this.authFireAuth.auth.signOut();
   }
 }
